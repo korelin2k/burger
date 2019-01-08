@@ -1,29 +1,25 @@
 <section class="relative" id="burgers">
   <div class="container">
     <div class="row mt-3">
-      <div class="col-md-6 col-sm-12 jumbotron">
+      <div class="col-md-12 col-lg-6 jumbotron">
         <h2>Eat a Burger!</h2>
 
-        <table width="100%">
+        <table width="100%" cellpadding="10">
           {{#each burgers}}
-          <tr>
           {{#unless devoured}}
           {{> burgers/burger-block devoured=true}}
           {{/unless}}
-          </tr>
           {{/each}}
         </table>
       </div>
-      <div class="col-md-6 col-sm-12 jumbotron">
+      <div class="col-md-12 col-lg-6 jumbotron">
         <h2>Make a Burger!</h2>
 
-        <table width="100%">
+        <table width="100%" cellpadding="10">
           {{#each burgers}}
-          <tr>
           {{#if devoured}}
           {{> burgers/burger-block devoured=false}}
           {{/if}}
-          </tr>
           {{/each}}
         </table>
       </div>

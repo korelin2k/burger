@@ -1,5 +1,6 @@
 import * as express from "express";
 import * as exphbs from "express-handlebars";
+import * as handlebars from "handlebars";
 import router from "./controllers/burgers_controller";
 
 const PORT = process.env.PORT || 8080;
@@ -14,6 +15,24 @@ app.use(express.json());
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+handlebars.registerHelper("ifContains", (value, options) => {
+    const search: string = "http";
+
+    if (value.includes(search)) {
+      return true;
+    } else {
+      return false;
+    }
+});
+
+handlebars.registerHelper("ifEquals", function(a, options) {
+  if (a.substring(0, 4) === "http") {
+    return options.fn(this);
+  }
+
+  return options.inverse(this);
+});
 
 app.use(router);
 
