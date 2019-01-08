@@ -1,7 +1,9 @@
-<li>
-	{{burger_name}}
 
-	<button class="change-devoured" data-id="{{id}}" data-devoured="{{devoured}}">
-		{{#if devoured}}DEVOURED!{{else}}MAKE!{{/if}}
-	</button>
-</li>
+<td><span style="line-height: 3;">{{burger_name}}</span></td>
+
+<td>
+<button class="change-devoured btn btn-sm btn-secondary" data-id="{{id}}" data-devoured="{{devoured}}">
+	{{#if devoured}}Eat!{{else}}Make Another!{{/if}}
+</button>
+</td>
+
