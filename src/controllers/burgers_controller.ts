@@ -16,14 +16,16 @@ router.get("/", (req, res) => {
 });
 
 router.post("/api/burger", (req, res) => {
-    burger.create(req.body.burger).then((result: any) => {
+    burger.create(req.body).then((result: any) => {
         res.json({ id: result.insertId });
     });
 });
 
 router.put("/api/burger/:id", (req, res) => {
     const id = req.params.id;
-    const burgerUpdate = req.body.burger;
+    const burgerUpdate = req.body;
+
+    console.log(burgerUpdate);
 
     burger.update(burgerUpdate, id).then((result) => {
         let status = 500;

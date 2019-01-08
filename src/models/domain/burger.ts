@@ -12,9 +12,17 @@ export class Burger {
         });
     }
 
-    public create(burger: string[]) {
+    public create(burger: object[]) {
         return new Promise<any>((resolve) => {
-            this.orm.insertOne(burger).then((result) => {
+            const burgerKey: string[] = [];
+            const burgerVal: string[] = [];
+
+            for (const [key, value] of Object.entries(burger)) {
+                burgerKey.push(key);
+                burgerVal.push(value.toString());
+            }
+
+            this.orm.insertOne(burgerKey, burgerVal).then((result) => {
                 resolve(result);
             });
         });
