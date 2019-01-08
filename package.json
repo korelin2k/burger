@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/korelin2k/burger#readme",
   "dependencies": {
+    "bluebird": "^3.5.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "promise-mysql": "^3.3.1"
